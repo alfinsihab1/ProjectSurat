@@ -29,7 +29,7 @@ include "include/header.php";
 
           <div class="alert alert-success">
             <strong>Hai <?php echo $namausr;?>!</strong>
-            Selamat datang di aplikasi Pengarsipan Surat Kejaksaan Negeri Bireun.<br />
+            Selamat datang di aplikasi Pengarsipan Surat Kejaksaan Negeri Bireuen.<br />
             Anda telah login sebagai
             <?php if($aksesusr == 2){
               echo "Pimpinan";
@@ -93,6 +93,13 @@ include "include/header.php";
                   <b><?php echo $count2; ?></b>
 
                   <p class="text-muted"> Surat Keluar</p>
+                </a>
+                <a href="proses/disposisi.php?cek=0&&id=0" class="btn-box big span4">
+                  <i class="icon-edit"></i>
+
+                  <b><?php echo $count4; ?></b>
+
+                  <p class="text-muted">Disposisi</p>
                 </a>
               </div>
             <?php

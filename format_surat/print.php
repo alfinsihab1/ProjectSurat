@@ -137,7 +137,7 @@
 
         <table>
           <tr>
-            <td align="center"><b>KEPALA KEJAKSAAN NEGERI BIREUN</b></td>
+            <td align="center"><b>KEPALA KEJAKSAAN NEGERI BIREUEN</b></td>
           </tr>
           <tr>
             <td><br><br><br><br></td>

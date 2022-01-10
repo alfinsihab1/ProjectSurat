@@ -28,7 +28,10 @@ include "../include/header_user.php";
                             <div class="module">
                                 <div class="module-head">
 								<a target="_blank" href="../format_surat/print.php?id=<?php echo $id_surat;?>" class="btn btn-module pull-right"><i class="icon-print"></i> Print</a>
-                                    <h2><?php echo $titlepage;?> </h2> 
+                                <?php if ($aksesusr == 1){?>
+                                    <a href="edit_outbox.php?id=<?php echo $data['id_surat']?>" class="btn btn-module pull-right">Edit</a>
+                                <?php }?>
+                                <h2><?php echo $titlepage;?> </h2> 
                                 </div>
                                 <div class="module-body table">
                                     <table class="table" width="100%">

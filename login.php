@@ -8,7 +8,7 @@ if(session_destroy()){
 <html>
 
 <head>
-  <title>Login - Aplikasi Pengarsipan Surat Kejaksaan Negeri Bireun</title>
+  <title>Login - Aplikasi Pengarsipan Surat Kejaksaan Negeri Bireuen</title>
 
   <link href="assets/css/login_form.css" rel="stylesheet" type="text/css">
 </head>
@@ -20,7 +20,7 @@ if(session_destroy()){
         <i class="fa fa-circle fa-stack-2x"></i>
         <i class="fa fa-lock fa-stack-1x"></i>
       </span><br /><br />
-      Arsip Surat Kejaksaan Negeri Bireun
+      Arsip Surat Kejaksaan Negeri Bireuen
     </p>
 
     <input type="text" class="login-username" autofocus="true" required="true" placeholder="Username" name="username" />
@@ -31,7 +31,7 @@ if(session_destroy()){
   <div class="underlay-photo"></div>
   <div class="underlay-black"></div>
 
-  <div class="footer">Copyright &copy; 2021 Kejaksaan Negeri Bireun. Design By Aninda Saputri</div>
+  <div class="footer">Copyright &copy; 2021 Kejaksaan Negeri Bireuen. Design By Aninda Saputri</div>
 </body>
 
 </html>

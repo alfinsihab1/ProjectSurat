@@ -67,7 +67,7 @@ include "../include/header_user.php";
 									buat_textbox('Perihal','perihal','Example Liburan Akhir Tahun',$data['perihal'],'required');
 									buat_textarea('Isi Surat','isi',$data['isi']);
 								
-								tutup_form('Simpan','../inbox.php');
+								tutup_form('Simpan','../outbox.php');
 							?>
 
             </div>

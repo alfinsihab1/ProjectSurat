@@ -15,6 +15,7 @@ include "../include/config.php";
 	$get				= mysqli_query($connect, "SELECT * FROM inbox WHERE id_surat = '$idsurat'");
 	$surat			= mysqli_fetch_array($get);
 	$no_surat		= $surat['no_surat'];
+
 // }
 
   //mengambil data disposisi surat

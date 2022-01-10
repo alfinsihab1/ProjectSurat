@@ -28,9 +28,9 @@ $cfg = array(
 ***********************************************/
 
 $company = array(
-		'name' 			 => 'Kejasksaan Negeri Bireun', //nama company default
-		'short_name' => 'Kejaksaan Bireun', //nama panggilan company
-		'long_name'  => 'Kejasksaan Negeri Bireun' //nama lengkap company
+		'name' 			 => 'Kejasksaan Negeri Bireuen', //nama company default
+		'short_name' => 'Kejaksaan Bireuen', //nama panggilan company
+		'long_name'  => 'Kejasksaan Negeri Bireuen' //nama lengkap company
 		);
 
 /**********************************************
