@@ -11,6 +11,8 @@ $count2 = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM outbox"));
 $count3 = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM user"));
 $count4 = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM disposisi"));
 $count5 = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM kode_surat"));
+$count6 = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM kode_masalah"));
+
 
 //title page
 $titlepage = "Dashboard";
@@ -76,7 +78,7 @@ include "include/header.php";
             
 
             <?php }
-            else if($aksesusr == 1){
+            else{
             ?>
               <div class="btn-box-row row-fluid">
                 <a href="inbox.php" class="btn-box big span4">
@@ -101,12 +103,24 @@ include "include/header.php";
 
                   <p class="text-muted">Disposisi</p>
                 </a>
+                <a href="proses/view_kode.php" class="btn-box big span5">
+                  <i class="icon-th-list"></i>
+                  <b><?php echo $count5; ?></b>
+
+                  <p class="text-muted">Jenis Surat</p>
+                </a>
+                <a href="proses/view_kode_masalah.php" class="btn-box big span5">
+                  <i class="icon-list-alt"></i>
+                  <b><?php echo $count6; ?></b>
+                  <p class="text-muted">Daftar Kode Isi Surat</p>
+                </a>
+                
               </div>
             <?php
             }
-            else{ ?>
+            ?>
 
-            <div class="btn-box-row row-fluid">
+            <!-- <div class="btn-box-row row-fluid">
               <a <?php if($aksesusr == 0){ ?> href="users.php" <?php } ?> class="btn-box big span3">
                 <i class="icon-group"></i>
 
@@ -114,17 +128,8 @@ include "include/header.php";
 
                 <p class="text-muted">Pengguna</p>
               </a>
-              <a href="proses/view_kode.php" class="btn-box big span4">
-                <i class="icon-edit"></i>
+            </div> -->
 
-                <b><?php echo $count5; ?></b>
-
-                <p class="text-muted">Jenis Surat</p>
-              </a>
-
-            </div>
-
-            <?php } ?>
           </div>
         </div>
 

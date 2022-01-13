@@ -3,7 +3,7 @@
 include "../include/auth.php"; 
 
 //cek akses user
-if($aksesusr != 0){
+if($aksesusr != 1){
 	echo "<script>
 				alert('Anda tidak memiliki hak untuk mengakses halaman ini!')
 				</script>
@@ -16,35 +16,29 @@ if($aksesusr != 0){
 //file configurasi
 include "../include/config.php";
 
-$sql_count	= mysqli_query($connect, "SELECT COUNT(id_kode) FROM kode_surat");
-$cek_count	= mysqli_fetch_array($sql_count);
-
-$cekk =  $cek_count['COUNT(id_kode)'];
 //proses input
 if(isset($_POST['submit'])){
 	 
-    $id_kode        = $cek_count['COUNT(id_kode)'];
-	$jenis_surat	= $_POST['jenis_surat'];
-	$k_surat		= $_POST['k_surat'];
+	$kode_masalah	= $_POST['k_masalah'];
+	$masalah		= $_POST['masalah'];
 	
-	$sql	= mysqli_query($connect, "SELECT * FROM kode_surat WHERE jenis_surat = '$jenis_surat'");
+	$sql	= mysqli_query($connect, "SELECT * FROM kode_masalah WHERE k_masalah = '$kode_masalah'");
 	$cek	= mysqli_num_rows($sql);
 	
 	if($cek > 0){
 		echo "<script>
-					alert('Jenis Surat Sudah ada!')
+					alert('Kode Isi Surat Sudah Ada!')
 					</script>";
 	}
 	else{
-        $cekk = $cekk + 1;
-		$query = mysqli_query($connect, "INSERT INTO kode_surat VALUES ('$cekk','$k_surat','$jenis_surat')");
+		$query = mysqli_query($connect, "INSERT INTO kode_masalah VALUES ('','$kode_masalah','$masalah')");
 
 		echo "<script>
-					alert(berhasil ditambah')
+					alert('berhasil ditambah')
 					</script>
 					
 					<script>
-					location.href='view_kode.php'
+					location.href='view_kode_masalah.php'
 					</script>";
 	}
 }
@@ -76,14 +70,13 @@ include "../include/header_user.php";
 
             <div class="module-body">
 
-              <?php
-								buka_form();
-                                buat_textbox('Jenis Surat','jenis_surat','Masukan Jenis Surat','','required');
-                                buat_textbox('Kode Surat','k_surat','Masukan Kode Surat','','required');
-
-                            
-                            tutup_form('Simpan','view_kode.php');
-							?>
+            <?php
+                buka_form();
+                buat_textbox('Kode Isi Surat','k_masalah','Masukan Kode Isi Surat','','required');
+                buat_textbox('Perihal','masalah','Masukan perihal','','required');
+            
+                tutup_form('Simpan','view_kode_masalah.php');
+            ?>
 
             </div>
           </div>

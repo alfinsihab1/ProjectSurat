@@ -4,7 +4,7 @@ include "../include/auth.php";
 
 //file configurasi
 include "../include/config.php";
-
+$view_ko = mysqli_query($connect,"select * from kode_surat");
 //mengambil data surat
 if(isset($_GET['id'])){
 	
@@ -60,9 +60,16 @@ include "../include/header_user.php";
 								buka_form();
 									
 									buat_textbox('Nomor Surat','no_surat','Example XXX/SDS/FBTR/II/2018',$data['no_surat'],'disabled');
-									buat_textbox('Jenis Surat','jenis','',$data['jenis'],'disabled');
+									
 									buat_textbox('Tanggal Surat','tanggal','',dateIndo($data['tanggal']),'disabled');
 									buat_textbox('Pengirim','pengirim','Masukan Nama Pengirim',$data['pengirim'],'disabled');
+
+									$list[]	= array('val' => '', 'cap' => '--Pilih Jenis Surat--');
+                                    while ($data1 = mysqli_fetch_array($view_ko)){
+                                        $list[]	= array('val' => $data1['jenis_surat'], 'cap' => $data1['jenis_surat']);
+                                    }
+                                    buat_combobox('Jenis Surat','jenis',$list,$data['jenis']);
+
 									buat_textbox('Tujuan','tujuan','Masukan Nama Tujuan',$data['tujuan'],'required');
 									buat_textbox('Perihal','perihal','Example Liburan Akhir Tahun',$data['perihal'],'required');
 									buat_textarea('Isi Surat','isi',$data['isi']);

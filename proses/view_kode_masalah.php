@@ -16,11 +16,11 @@ if($aksesusr != 1){
 //file configurasi
 include "../include/config.php";
 
-$sql    = "SELECT * FROM kode_surat";
+$sql    = "SELECT * FROM kode_masalah";
 $query  = mysqli_query ($connect, $sql);
 
 //title page
-$titlepage = "Kode Surat";
+$titlepage = "Kode Isi Surat";
 
 //header aplikasi
 include "../include/header_user.php";
@@ -36,8 +36,8 @@ include "../include/header_user.php";
 
           <div class="module">
             <div class="module-head">
-              <a href="input_kode.php" class="btn btn-module pull-right">
-                <i class="icon-plus"></i> Tambah Jenis Surat
+              <a href="input_kode_masalah.php" class="btn btn-module pull-right">
+                <i class="icon-plus"></i> Tambah Kode Isi Surat
               </a>
 
               <h2><?php echo $titlepage;?> </h2>
@@ -50,8 +50,8 @@ include "../include/header_user.php";
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama Surat</th>
-                    <th>Kode Surat</th>
+                    <th>Kode isi Surat</th>
+                    <th>Perihal</th>
                   </tr>
                 </thead>
 
@@ -63,14 +63,14 @@ include "../include/header_user.php";
 
                   <tr>
                     <td><?php echo $no++;?></td>
-                    <td><?php echo $data['jenis_surat'];?></td>
-                    <td><?php echo $data['k_surat'];?></td>
+                    <td><?php echo $data['k_masalah'];?></td>
+                    <td><?php echo $data['masalah'];?></td>
 
                     <td>
                       <div class="btn-group">
-                        <a href="edit_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
+                        <a href="edit_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
                           class="btn btn-small">Edit</a>
-                        <a href="delete_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
+                        <a href="delete_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
                           class="btn btn-small">Hapus</a>
                       </div>
                     </td>

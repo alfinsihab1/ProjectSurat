@@ -31,7 +31,10 @@ include "../include/header_user.php";
                             <div class="module">
                                 <div class="module-head">
 								<a href="disposisi.php?id=<?php echo $view;?> && cek=1" class="btn btn-module pull-right"><i class="icon-edit"></i> Disposisi</a>
-                                    <h2><?php echo $titlepage;?> </h2> 
+                                <?php if ($aksesusr == 1){?>
+                                    <a href="edit_inbox.php?id=<?php echo $data['id_surat']?>" class="btn btn-module pull-right">Edit</a>
+                                <?php }?>    
+                                <h2><?php echo $titlepage;?> </h2> 
                                 </div>
                                 <div class="module-body table">
 								
@@ -61,6 +64,10 @@ include "../include/header_user.php";
 											<tr>
                                                 <th>Tanggal Terima</th>
 												<td><?php echo dateindo($data['tanggal_terima']);?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Isi Surat</th>
+												<td><?php echo $data['isi_surat'];?></td>
                                             </tr>
                                         </tbody>
 									</table>

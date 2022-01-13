@@ -6,16 +6,21 @@
           <i class="menu-icon icon-dashboard"></i>Dashboard
         </a>
       </li>
-      <?php if($aksesusr == 0){ ?>
+      <?php if($aksesusr == 1){ ?>
 
-    <ul class="widget widget-menu unstyled">
+    <!-- <ul class="widget widget-menu unstyled">
       <li>
-        <a href="../users.php">
+        <a href="users.php">
           <i class="menu-icon icon-group"></i> Manage User
         </a>
       </li>
-    </ul>
+    </ul> -->
     <ul class="widget widget-menu unstyled">
+      <li>
+        <a href="view_kode_masalah.php">
+          <i class="menu-icon icon-list"></i> Daftar Kode Masalah
+        </a>
+      </li>
       <li>
         <a href="view_kode.php">
           <i class="menu-icon icon-group"></i> Daftar Jenis Surat
@@ -23,9 +28,8 @@
       </li>
     </ul>
 
-    <?php } 
-    else{
-    ?>
+    <?php } ?>
+    <ul class="widget widget-menu unstyled">
       <li>
         <a href="../inbox.php">
           <i class="menu-icon icon-arrow-down"></i>Surat Masuk
@@ -39,18 +43,15 @@
       </li>
     </ul>
 
-    <?php }?>
-
-
     <ul class="widget widget-menu unstyled">
       <li>
-        <a href="editpwd.php">
+        <a href="proses/editpwd.php">
           <i class="menu-icon icon-cog"></i>Ubah Password
         </a>
       </li>
 
       <li>
-        <a href="../include/logout.php">
+        <a href="include/logout.php">
           <i class="menu-icon icon-signout"></i>Logout
         </a>
       </li>
