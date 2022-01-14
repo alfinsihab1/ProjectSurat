@@ -1,6 +1,6 @@
 <?php 
 //cek status login
-include "../include/auth.php"; 
+include "include/auth.php"; 
 
 //cek akses user
 if($aksesusr != 1){
@@ -14,7 +14,7 @@ if($aksesusr != 1){
 }
 
 //file configurasi
-include "../include/config.php";
+include "include/config.php";
 
 $sql    = "SELECT * FROM kode_masalah";
 $query  = mysqli_query ($connect, $sql);
@@ -23,20 +23,20 @@ $query  = mysqli_query ($connect, $sql);
 $titlepage = "Kode Isi Surat";
 
 //header aplikasi
-include "../include/header_user.php";
+include "include/header.php";
 ?>
 
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <?php include "../include/menu_user.php";?>
+      <?php include "include/menu.php";?>
 
       <div class="span9">
         <div class="content">
 
           <div class="module">
             <div class="module-head">
-              <a href="input_kode_masalah.php" class="btn btn-module pull-right">
+              <a href="proses/input_kode_masalah.php" class="btn btn-module pull-right">
                 <i class="icon-plus"></i> Tambah Kode Isi Surat
               </a>
 
@@ -44,7 +44,6 @@ include "../include/header_user.php";
             </div>
 
             <div class="module-body table">
-
               <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-striped display"
                 width="100%">
                 <thead>
@@ -68,9 +67,9 @@ include "../include/header_user.php";
 
                     <td>
                       <div class="btn-group">
-                        <a href="edit_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
+                        <a href="proses/edit_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
                           class="btn btn-small">Edit</a>
-                        <a href="delete_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
+                        <a href="proses/delete_kode_masalah.php?id=<?php echo $data['id_k_masalah'];?>" type="button"
                           class="btn btn-small">Hapus</a>
                       </div>
                     </td>
@@ -88,4 +87,4 @@ include "../include/header_user.php";
     </div>
   </div>
 </div>
-<?php include "../include/footer.php";?>
+<?php include "include/footer.php";?>

@@ -103,13 +103,13 @@ include "include/header.php";
 
                   <p class="text-muted">Disposisi</p>
                 </a>
-                <a href="proses/view_kode.php" class="btn-box big span5">
+                <a href="view_kode.php" class="btn-box big span5">
                   <i class="icon-th-list"></i>
                   <b><?php echo $count5; ?></b>
 
                   <p class="text-muted">Jenis Surat</p>
                 </a>
-                <a href="proses/view_kode_masalah.php" class="btn-box big span5">
+                <a href="view_kode_masalah.php" class="btn-box big span5">
                   <i class="icon-list-alt"></i>
                   <b><?php echo $count6; ?></b>
                   <p class="text-muted">Daftar Kode Isi Surat</p>

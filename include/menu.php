@@ -17,12 +17,12 @@
     </ul> -->
     <ul class="widget widget-menu unstyled">
       <li>
-        <a href="proses/view_kode_masalah.php">
+        <a href="view_kode_masalah.php">
           <i class="menu-icon icon-list"></i> Daftar Kode Masalah
         </a>
       </li>
       <li>
-        <a href="proses/view_kode.php">
+        <a href="view_kode.php">
           <i class="menu-icon icon-group"></i> Daftar Jenis Surat
         </a>
       </li>

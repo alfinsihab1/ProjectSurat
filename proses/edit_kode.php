@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
 				</script>
 
 				<script>
-				location.href='view_kode.php'
+				location.href='../view_kode.php'
 				</script>";
  }
  
@@ -65,7 +65,7 @@ include "../include/header_user.php";
 									buat_textbox('Kode surat','k_surat','',$data['k_surat'],'required');
 
 								
-								tutup_form('Simpan','view_kode.php');
+								tutup_form('Simpan','../view_kode.php');
 							?>
 							
 

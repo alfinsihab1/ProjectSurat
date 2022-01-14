@@ -1,6 +1,6 @@
 <?php 
 //cek status login
-include "../include/auth.php"; 
+include "include/auth.php"; 
 
 //cek akses user
 if($aksesusr != 1){
@@ -14,7 +14,7 @@ if($aksesusr != 1){
 }
 
 //file configurasi
-include "../include/config.php";
+include "include/config.php";
 
 $sql    = "SELECT * FROM kode_surat";
 $query  = mysqli_query ($connect, $sql);
@@ -23,20 +23,20 @@ $query  = mysqli_query ($connect, $sql);
 $titlepage = "Kode Surat";
 
 //header aplikasi
-include "../include/header_user.php";
+include "include/header.php";
 ?>
 
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <?php include "../include/menu_user.php";?>
+      <?php include "include/menu.php";?>
 
       <div class="span9">
         <div class="content">
 
           <div class="module">
             <div class="module-head">
-              <a href="input_kode.php" class="btn btn-module pull-right">
+              <a href="proses/input_kode.php" class="btn btn-module pull-right">
                 <i class="icon-plus"></i> Tambah Jenis Surat
               </a>
 
@@ -68,9 +68,9 @@ include "../include/header_user.php";
 
                     <td>
                       <div class="btn-group">
-                        <a href="edit_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
+                        <a href="proses/edit_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
                           class="btn btn-small">Edit</a>
-                        <a href="delete_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
+                        <a href="proses/delete_kode.php?id=<?php echo $data['jenis_surat'];?>" type="button"
                           class="btn btn-small">Hapus</a>
                       </div>
                     </td>
@@ -88,4 +88,4 @@ include "../include/header_user.php";
     </div>
   </div>
 </div>
-<?php include "../include/footer.php";?>
+<?php include "include/footer.php";?>
