@@ -18,7 +18,7 @@
     <ul class="widget widget-menu unstyled">
       <li>
         <a href="view_kode_masalah.php">
-          <i class="menu-icon icon-list"></i> Daftar Kode Masalah
+          <i class="menu-icon icon-list"></i> Kode Surat
         </a>
       </li>
       <li>

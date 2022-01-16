@@ -8,7 +8,7 @@ include "../include/config.php";
 //mengambil data surat
 if(isset($_GET['id'])){
 	$id_user	    = $_GET['id'];
-	$get			= mysqli_query($connect, "SELECT * FROM kode_masalah WHERE id_k_masalah = '$id_user'");
+	$get			= mysqli_query($connect, "SELECT * FROM kode_kejora WHERE id_kejora = '$id_user'");
 	$data			= mysqli_fetch_array($get);
     
 }
@@ -17,18 +17,18 @@ if(isset($_GET['id'])){
     
 if(isset($_POST['submit'])){
 	 
-	$ks_masalah		= $_POST['k_masalah'];
-	$masalah		= $_POST['masalah'];
+	$ks_masalah		= $_POST['nama_kode'];
+	$masalah		= $_POST['bagian'];
 	
 	
-	$query = mysqli_query($connect, "UPDATE kode_masalah SET k_masalah = '$ks_masalah', masalah = '$masalah' WHERE id_k_masalah = '$id_user'");
+	$query = mysqli_query($connect, "UPDATE kode_kejora SET nama_kode = '$ks_masalah', bagian = '$masalah' WHERE id_kejora = '$id_user'");
 
 	echo "<script>
 				alert('Data berhasil diubah')
 				</script>
 
 				<script>
-				location.href='../view_kode_masalah.php'
+				location.href='../view_kode_kejora.php'
 				</script>";
  }
  
@@ -61,10 +61,10 @@ include "../include/header_user.php";
 
                 <?php
                     buka_form();
-                    buat_textbox('Kode Isi Surat','k_masalah','',$data['k_masalah'],'required');
-                    buat_textbox('Perihal','masalah','',$data['masalah'],'required');
+                    buat_textbox('Kode ','nama_kode','',$data['nama_kode'],'required');
+                    buat_textbox('Bagian','bagian','',$data['bagian'],'required');
 			
-                    tutup_form('Simpan','../view_kode_masalah.php');
+                    tutup_form('Simpan','../view_kode_kejora.php');
                 ?>
 							
 
