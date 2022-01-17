@@ -19,14 +19,14 @@ if(isset($_POST['submit'])){
 	 $status		= $_POST['status'];
 	 $tanggapan	= $_POST['tanggapan'];
 	 
-	 $query = mysqli_query($connect, "INSERT INTO disposisi VALUES ('','$idsurat','$idusr','$no_surat','$kepada','$status','$tanggapan')");
+	 $query = mysqli_query($connect, "INSERT INTO disposisi VALUES ('','$idsurat','$no_surat','$kepada','$status','$tanggapan')");
 
 	 echo "<script>
 	 			alert('Data berhasil ditambah')
 				</script>
 				 
 				<script>
-				location.href='disposisi.php?id=".$idsurat."'
+				location.href='disposisi.php?id=".$idsurat."&&cek=1'
 				</script>";
  }
  

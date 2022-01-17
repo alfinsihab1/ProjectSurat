@@ -66,4 +66,13 @@ function tutup_form($label,$back){
 				</div>
 			</form>';
 }
+function tutup_form1($label,$back){
+	echo '<div class="control-group">
+					<div class="controls">
+						<input name="submit" type="submit" class="btn btn-primary" value="'.$label.'"/>
+						<a href="'.$back.'" class="btn btn-module"><i class="icon-arrow-left"></i> Kembali</a>
+					</div>
+				</div>
+			</form>';
+}
 ?>

@@ -8,7 +8,10 @@ include "../include/config.php";
 //mengambil data surat
 if(isset($_GET['id'])){
 	$id_surat 	= $_GET['id'];
-	$query 		= mysqli_query ($connect,"select * from outbox where id_surat='$id_surat'");
+	$query 		= mysqli_query ($connect,"select * from outbox o
+                                         join kode_surat k
+                                         on o.id_kode = k.id_kode
+                                         where o.id_surat='$id_surat'");
 	$data 		= mysqli_fetch_array ($query);
 }
 
@@ -42,7 +45,7 @@ include "../include/header_user.php";
                                             </tr>
 
                                                 <th>Jenis</th>
-												<td><?php echo $data['jenis'];?></td>
+												<td><?php echo $data['jenis_surat'];?></td>
                                             </tr>
 											<tr>
                                                 <th>Pengirim</th>

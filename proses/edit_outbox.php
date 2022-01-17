@@ -9,7 +9,10 @@ $view_ko = mysqli_query($connect,"select * from kode_surat");
 if(isset($_GET['id'])){
 	
 	$id_surat	= $_GET['id'];
-	$get			= mysqli_query($connect, "SELECT * FROM outbox WHERE id_surat = '$id_surat'");
+	$get			= mysqli_query($connect, "SELECT * FROM outbox o
+											JOIN kode_surat k
+											ON o.id_kode = k.id_kode
+											WHERE o.id_surat = '$id_surat'");
 	$data			= mysqli_fetch_array($get);
 }
 //proses input
@@ -63,12 +66,6 @@ include "../include/header_user.php";
 									
 									buat_textbox('Tanggal Surat','tanggal','',dateIndo($data['tanggal']),'disabled');
 									buat_textbox('Pengirim','pengirim','Masukan Nama Pengirim',$data['pengirim'],'disabled');
-
-									$list[]	= array('val' => '', 'cap' => '--Pilih Jenis Surat--');
-                                    while ($data1 = mysqli_fetch_array($view_ko)){
-                                        $list[]	= array('val' => $data1['jenis_surat'], 'cap' => $data1['jenis_surat']);
-                                    }
-                                    buat_combobox('Jenis Surat','jenis',$list,$data['jenis']);
 
 									buat_textbox('Tujuan','tujuan','Masukan Nama Tujuan',$data['tujuan'],'required');
 									buat_textbox('Perihal','perihal','Example Liburan Akhir Tahun',$data['perihal'],'required');

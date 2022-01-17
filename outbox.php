@@ -5,7 +5,10 @@ include "include/auth.php";
 //file configurasi
 include "include/config.php";
 
-$sql = "SELECT * from outbox ORDER BY id_surat DESC";
+$sql = "SELECT * from outbox o 
+                JOIN kode_surat k
+                ON o.id_kode = k.id_kode
+                ORDER BY id_surat ASC";
 $query = mysqli_query ($connect,$sql);
 
 //title page
@@ -50,7 +53,7 @@ include "include/header.php";
 										while($data = mysqli_fetch_array ($query)){ ?>
                                             <tr>
                                                 <td><?php echo $data['no_surat'];?></td>
-                                                <td><?php echo $data['jenis'];?></td>
+                                                <td><?php echo $data['jenis_surat'];?></td>
 												<td><?php echo $data['perihal'];?></td>
 												<td><?php echo $data['tujuan'];?></td>
 												<td>

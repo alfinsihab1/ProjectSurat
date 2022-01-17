@@ -3,7 +3,7 @@
 include "../include/auth.php"; 
 
 //cek akses user
-if($aksesusr != 0){
+if($aksesusr != 1){
 	echo "<script>
 				alert('Anda tidak memiliki hak untuk mengakses halaman ini!')
 				</script>

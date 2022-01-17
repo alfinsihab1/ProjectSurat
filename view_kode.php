@@ -20,7 +20,7 @@ $sql    = "SELECT * FROM kode_surat";
 $query  = mysqli_query ($connect, $sql);
 
 //title page
-$titlepage = "Kode Surat";
+$titlepage = "Jenis Surat";
 
 //header aplikasi
 include "include/header.php";
