@@ -51,7 +51,7 @@
       </li>
 
       <li>
-        <a href="include/logout.php">
+        <a href="../include/logout.php">
           <i class="menu-icon icon-signout"></i>Logout
         </a>
       </li>

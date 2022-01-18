@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
 	$kode_masalah	= $_POST['nama_kode'];
 	$masalah		= $_POST['bagian'];
 	
-	$sql	= mysqli_query($connect, "SELECT * FROM kode_kejora WHERE nama_kode = '$kode_masalah'");
+	$sql	= mysqli_query($connect, "SELECT * FROM kode_kejari WHERE nama_kode = '$kode_masalah'");
 	$cek	= mysqli_num_rows($sql);
 	
 	if($cek > 0){
@@ -31,14 +31,14 @@ if(isset($_POST['submit'])){
 					</script>";
 	}
 	else{
-		$query = mysqli_query($connect, "INSERT INTO kode_kejora VALUES ('','$kode_masalah','$masalah')");
+		$query = mysqli_query($connect, "INSERT INTO kode_kejari VALUES ('','$kode_masalah','$masalah')");
 
 		echo "<script>
 					alert('berhasil ditambah')
 					</script>
 					
 					<script>
-					location.href='../view_kode_kejora.php'
+					location.href='../view_kode_kejari.php'
 					</script>";
 	}
 }
@@ -75,7 +75,7 @@ include "../include/header_user.php";
                 buat_textbox('Kode bagian','nama_kode','Contoh: L.1.21','','required');
                 buat_textbox('Bagian','bagian','Contoh: Pemeriksaan','','required');
             
-                tutup_form('Simpan','../view_kode_kejora.php');
+                tutup_form('Simpan','../view_kode_kejari.php');
             ?>
 
             </div>

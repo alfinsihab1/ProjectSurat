@@ -41,7 +41,7 @@ include "include/header.php";
               </a>
               <a href="view_kode_masalah.php" style="color:black;font-size:15px">Kode Masalah</a>
               /
-              <a href="view_kode_kejora.php" style="color:red;font-size:15px">Kode Kejaksaan</a>
+              <a href="view_kode_kejari.php" style="color:red;font-size:15px">Kode Kejaksaan</a>
               <h2><?php echo $titlepage;?> </h2>
             </div>
 

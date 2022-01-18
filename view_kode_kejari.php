@@ -16,7 +16,7 @@ if($aksesusr != 1){
 //file configurasi
 include "include/config.php";
 
-$sql    = "SELECT * FROM kode_kejora";
+$sql    = "SELECT * FROM kode_kejari";
 $query  = mysqli_query ($connect, $sql);
 
 //title page
@@ -36,12 +36,12 @@ include "include/header.php";
 
           <div class="module">
             <div class="module-head">
-              <a href="proses/input_kode_kejora.php" class="btn btn-module pull-right">
+              <a href="proses/input_kode_kejari.php" class="btn btn-module pull-right">
                 <i class="icon-plus"></i> Tambah Kode
               </a>
               <a href="view_kode_masalah.php" style="color:red;font-size:15px">Kode Masalah</a>
               /
-              <a href="view_kode_kejora.php" style="color:black;font-size:15px">Kode Kejaksaan</a>
+              <a href="view_kode_kejari.php" style="color:black;font-size:15px">Kode Kejaksaan</a>
               <h2><?php echo $titlepage;?> </h2>
             </div>
 
@@ -69,9 +69,9 @@ include "include/header.php";
 
                     <td>
                       <div class="btn-group">
-                        <a href="proses/edit_kode_kejora.php?id=<?php echo $data['id_kejora'];?>" type="button"
+                        <a href="proses/edit_kode_kejari.php?id=<?php echo $data['id_kejari'];?>" type="button"
                           class="btn btn-small">Edit</a>
-                        <a href="proses/delete_kode_kejora.php?id=<?php echo $data['id_kejora'];?>" type="button"
+                        <a href="proses/delete_kode_kejari.php?id=<?php echo $data['id_kejari'];?>" type="button"
                           class="btn btn-small">Hapus</a>
                       </div>
                     </td>

@@ -16,15 +16,11 @@ $last_id = mysqli_fetch_array($last_sql);
 
 $view_k = mysqli_query($connect,"select * from outbox");
 $view_ko = mysqli_query($connect,"select * from kode_surat");
-$view_ko2 = mysqli_query($connect,"select * from kode_kejora");
+$view_ko2 = mysqli_query($connect,"select * from kode_kejari");
 $view_ko1 = mysqli_query($connect,"select * from kode_masalah");
 
 $cek_last_id = $last_id['COUNT(id_surat)']+1;	
 
-
-$query0=mysqli_fetch_array($view_k);
-$query1=mysqli_fetch_array($view_ko1);
-$query2=mysqli_fetch_array($view_ko2);
 
 //proses input
 if(isset($_POST['submit'])){
@@ -32,7 +28,7 @@ if(isset($_POST['submit'])){
 	
 	 $jenis			= $_POST['jenis'];
 	 $kode_masalah	= $_POST['kode_masalah'];
-	 $kode_kejora	= $_POST['kode_kejora'];
+	 $kode_kejari	= $_POST['kode_kejari'];
 	 $tanggal		= $_POST['tanggal'];
 	 $pengirim		= $_POST['pengirim'];
 	 $tujuan		= $_POST['tujuan'];
@@ -45,7 +41,7 @@ if(isset($_POST['submit'])){
 	 $query_jenis = mysqli_fetch_array($pilih_jenis);
 	 $pilih_jenis = $query_jenis['k_surat'];
 
-	 $no_surat = $pilih_jenis.'-'.$cek_last_id.'/'.$kode_kejora.'/'.$kode_masalah.'/'.$month.'/'.$year;
+	 $no_surat = $pilih_jenis.'-'.$cek_last_id.'/'.$kode_kejari.'/'.$kode_masalah.'/'.$month.'/'.$year;
 
 	 $sql	= mysqli_query($connect,"select * from outbox where no_surat='$no_surat'");
 	 $cek	= mysqli_num_rows($sql);
@@ -72,7 +68,6 @@ $titlepage = "Input Surat Keluar";
 
 //header aplikasi
 include "../include/header_user.php";
- 
  ?>
  
  <div class="wrapper">
@@ -98,20 +93,18 @@ include "../include/header_user.php";
 											}
 											buat_combobox('Jenis Surat','jenis',$list,'');
 
-
-											$list2[]	= array('val' => '', 'cap' => '--Pilih Kode Masalah--');
+											$list1[]	= array('val' => '', 'cap' => '--Pilih Kode Masalah--');
 											while ($data2 = mysqli_fetch_array($view_ko1)){
-												$list2[]	= array('val' => $data2['k_masalah'], 'cap' => $data2['masalah']);
+												$list1[]	= array('val' => $data2['id_k_masalah'], 'cap' => $data2['masalah']);
 											}
-											buat_combobox('Kode Masalah','kode_masalah',$list2,'');
+											buat_combobox('Kode Masalah','kode_masalah',$list1,'');
 
-											
-											$list3[]	= array('val' => '', 'cap' => '--Pilih Kode Kejaksaan--');
+											$list2[]	= array('val' => '', 'cap' => '--Pilih Kode Kejaksaan--');
 											while ($data3 = mysqli_fetch_array($view_ko2)){
-												$list3[]	= array('val' => $data3['nama_kode'], 'cap' => $data3['bagian']);
+												$list2[]	= array('val' => $data3['id_kejari'], 'cap' => $data3['bagian']);
 											}
-											
-											buat_combobox('Jenis Surat','kode_kejora',$list3,'');
+											buat_combobox('Kode Pejabat Kejaksaan','kode_kejari',$list2,'');
+
 											buat_datebox('Tanggal Surat','tanggal','','required');
 											buat_textbox('Pengirim','pengirim','Masukan Nama Pengirim','','required');
 											buat_textbox('Tujuan','tujuan','Masukan Nama Tujuan','','required');
@@ -119,6 +112,7 @@ include "../include/header_user.php";
 											buat_textarea('Isi Surat','isi','');
 										
 											tutup_form('Simpan','../outbox.php');
+											
 									
 									?>
 																			
@@ -131,4 +125,6 @@ include "../include/header_user.php";
 				
             </div>
         </div>
-<?php include "../include/footer.php";?>
+<?php include "../include/footer.php";
+
+?>

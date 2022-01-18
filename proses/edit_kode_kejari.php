@@ -8,7 +8,7 @@ include "../include/config.php";
 //mengambil data surat
 if(isset($_GET['id'])){
 	$id_user	    = $_GET['id'];
-	$get			= mysqli_query($connect, "SELECT * FROM kode_kejora WHERE id_kejora = '$id_user'");
+	$get			= mysqli_query($connect, "SELECT * FROM kode_kejari WHERE id_kejari = '$id_user'");
 	$data			= mysqli_fetch_array($get);
     
 }
@@ -21,14 +21,14 @@ if(isset($_POST['submit'])){
 	$masalah		= $_POST['bagian'];
 	
 	
-	$query = mysqli_query($connect, "UPDATE kode_kejora SET nama_kode = '$ks_masalah', bagian = '$masalah' WHERE id_kejora = '$id_user'");
+	$query = mysqli_query($connect, "UPDATE kode_kejari SET nama_kode = '$ks_masalah', bagian = '$masalah' WHERE id_kejari = '$id_user'");
 
 	echo "<script>
 				alert('Data berhasil diubah')
 				</script>
 
 				<script>
-				location.href='../view_kode_kejora.php'
+				location.href='../view_kode_kejari.php'
 				</script>";
  }
  
@@ -64,7 +64,7 @@ include "../include/header_user.php";
                     buat_textbox('Kode ','nama_kode','',$data['nama_kode'],'required');
                     buat_textbox('Bagian','bagian','',$data['bagian'],'required');
 			
-                    tutup_form('Simpan','../view_kode_kejora.php');
+                    tutup_form('Simpan','../view_kode_kejari.php');
                 ?>
 							
 

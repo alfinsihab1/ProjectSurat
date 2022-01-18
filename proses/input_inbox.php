@@ -4,7 +4,7 @@ include "../include/auth.php";
 
 //file configurasi
 include "../include/config.php";
-
+$view_ko = mysqli_query($connect,"select * from kode_surat");
 //proses input
 if(isset($_POST['submit'])){
 	
@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
 	$tgl_terima	= $_POST['tgl_terima'];
 	$pengirim		= $_POST['pengirim'];
 	$perihal			= $_POST['perihal'];
+	$isi			= $_POST['isi'];
 
 	$sql	= mysqli_query($connect, "SELECT * FROM inbox WHERE no_surat = '$no_surat'");
 	$cek	= mysqli_num_rows($sql);
@@ -22,7 +23,7 @@ if(isset($_POST['submit'])){
 		echo "<script>alert('Nomor Surat Sudah digunakan!')</script>";
 	}
 	else{
-		$query = mysqli_query($connect, "INSERT INTO inbox VALUES ('','$jenis','$tgl_kirim','$tgl_terima','$no_surat','$pengirim','$perihal')");
+		$query = mysqli_query($connect, "INSERT INTO inbox VALUES ('','$jenis','$tgl_kirim','$tgl_terima','$no_surat','$pengirim','$perihal','$isi')");
 
 		echo "<script>
 					alert('Data berhasil ditambah')
@@ -67,15 +68,15 @@ include "../include/header_user.php";
 									buat_textbox('Nomor Surat','no_surat','','','required');
 									
 									$list[]	= array('val' => '', 'cap' => '--Pilih Jenis Surat--');
-									$list[]	= array('val' => 'Surat Biasa', 'cap' => 'Surat Biasa');
-									$list[] = array('val' => 'Surat Keputusan', 'cap' => 'Surat Keputusan');
-									$list[]	= array('val' => 'Surat Perintah', 'cap' => 'Surat Perintah');
-									
+									while ($data1 = mysqli_fetch_array($view_ko)){
+										$list[]	= array('val' => $data1['id_kode'], 'cap' => $data1['jenis_surat']);
+									}
 									buat_combobox('Jenis Surat','jenis',$list,'');
 									buat_datebox('Tanggal Kirim','tgl_kirim','','required');
 									buat_datebox('Tanggal Terima','tgl_terima','','required');
 									buat_textbox('Pengirim','pengirim','Masukan Nama Pengirim','','required');
 									buat_textbox('Perihal','perihal','Example Liburan Akhir Tahun','','required');
+									buat_textbox('Isi Surat','isi','Example Liburan Akhir Tahun','','');
 								
 								tutup_form('Simpan','../inbox.php');
 							?>
